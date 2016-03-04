@@ -12,7 +12,7 @@ var express = require('express'),
 // require the album controller
 var albumsController = require('../controllers/albumsController');
 
-router.route('/asdf').get(albumsController.index)
+router.route('/albums').get(albumsController.index)
   // Get all albums
   // .get(albumsController.index);
 
