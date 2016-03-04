@@ -7,7 +7,7 @@ var albumsController = {
     })
   },
   new: function(req, res) {
-    res.render('../views/albums/new');
+    res.render('../views/albums/new', {albums: data});
   },
   create: function(req, res) {
     var name = req.body.name;
@@ -21,7 +21,6 @@ var albumsController = {
                   })
   },
   show: function(req, res) {
-    // res.send(200);
     var id = req.params.id
     console.log("test")
     Album.findById({_id: id}, function(err, data){
