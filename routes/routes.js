@@ -10,13 +10,28 @@ var express = require('express'),
 // });
 
 // require the album controller
+
+// redirect / to /albums for now
+router.route('/').get(function(req,res){
+  res.redirect('/albums')
+})
 var albumsController = require('../controllers/albumsController');
 
-router.route('/albums').get(albumsController.index)
-  // Get all albums
-  // .get(albumsController.index);
+// show all albums
+router.route('/albums')
+  .get(albumsController.index);
 
+// new page and create
+router.route('/albums/new')
+  .get(albumsController.new)
+
+  .post(albumsController.create);
+
+
+// sanity check
 // router.route('/albums').get(function(req,res) {
-//   res.send("test");
+//   res.send("check sanity");
 // });
+
+
 module.exports = router;
