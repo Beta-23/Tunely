@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var helpers = require('express-helpers');
+var hbs = require('hbs')
 
 
 var mongoose = require('mongoose');

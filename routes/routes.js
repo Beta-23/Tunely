@@ -27,6 +27,14 @@ router.route('/albums/new')
 
   .post(albumsController.create);
 
+// edit
+router.route('/albums/:id')
+
+  .get(albumsController.show);
+
+  // .patch(albumsController.edit)
+
+  // .delete(albumsController.delete);
 
 // sanity check
 // router.route('/albums').get(function(req,res) {
