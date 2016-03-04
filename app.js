@@ -4,10 +4,11 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var helpers = require('express-helpers')
+var helpers = require('express-helpers');
+
 
 var mongoose = require('mongoose');
-
+mongoose.connect('mongodb://localhost/tunely-app');
 
 
 var routes = require('./routes/routes');
@@ -67,5 +68,6 @@ app.use(function(err, req, res, next) {
   });
 });
 
-
-module.exports = app;
+app.listen(3000, function() {
+  console.log("listening on 3000")
+});

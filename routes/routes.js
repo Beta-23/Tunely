@@ -1,7 +1,8 @@
-var express = require('express');
+var express = require('express'),
      router = express.Router(),
  bodyParser = require('body-parser'), //parses information from POST
-   methodOverride = require('method-override')
+   methodOverride = require('method-override'),
+   Album = require('../models/Album')
 
 /* GET home page. */
 // router.get('/', function(req, res, next) {
@@ -11,8 +12,11 @@ var express = require('express');
 // require the album controller
 var albumsController = require('../controllers/albumsController');
 
-router.route('/albums')
+router.route('/asdf').get(albumsController.index)
   // Get all albums
-  .get(albumsController.getAll);
+  // .get(albumsController.index);
 
+// router.route('/albums').get(function(req,res) {
+//   res.send("test");
+// });
 module.exports = router;
