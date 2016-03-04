@@ -1,12 +1,16 @@
-<ul>
+<ul class="albums">
 {{#each albums}}
-  <li class="albums">
     <!-- <a class="album-title" href="/albums/{{_id}}">{{title}}:</a> -->
-    <li >{{image}}</li>
-    <li >{{name}}</li>
+  <li >{{image}}</li>
+  <li >{{name}}</li>
 	<li >{{artist}}</li>
 	<li >{{release_date}}</li>
 	<li >{{genre}}</li>
-  </li>
+	<br>
 {{/each}}
 </ul>
+
+{{!-- 
+{{ link_to('Add a New Quote', '/albums/new') }} --}}
+
+
