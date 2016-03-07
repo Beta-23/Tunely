@@ -39,7 +39,7 @@ router.route('/albums/:id/edit')
 
   .get(albumsController.edit)
 
-  .patch(albumsController.edit);
+  .patch(albumsController.update);
 
 
 
