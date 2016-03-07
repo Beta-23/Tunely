@@ -19,7 +19,8 @@ var albumsController = require('../controllers/albumsController');
 
 // show all albums
 router.route('/albums')
-  .get(albumsController.index);
+  .get(albumsController.index)
+
 
 // new page and create
 router.route('/albums/new')
@@ -30,16 +31,32 @@ router.route('/albums/new')
 // edit
 router.route('/albums/:id')
 
-  .get(albumsController.show);
+  .get(albumsController.show)
 
-  // .patch(albumsController.edit)
+  .delete(albumsController.delete);
 
-  // .delete(albumsController.delete);
+router.route('/albums/:id/edit')
+
+  .get(albumsController.edit)
+
+  .patch(albumsController.update);
+
+
+
+
+// create route to albums/search
+// in this contoller should be the search by id
+// params from request
+
+// search bar route
+router.route('/search')
+  
+  .get(albumsController.search)
+
 
 // sanity check
 // router.route('/albums').get(function(req,res) {
 //   res.send("check sanity");
 // });
-
 
 module.exports = router;

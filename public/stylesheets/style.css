@@ -1,8 +1,84 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: url('https://wallpaperscraft.com/image/white_background_dents_bumps_texture_69592_3840x2400.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+header{
+	background-color: blue;
+	position: fixed;
+	width: 100%;
+	top: 0;
+	z-index: 9999;
 }
 
 a {
-  color: #00B7FF;
+	color: white;
+/*  color: #00B7FF;*/
 }
+
+ul{
+	display: inline-block;
+}
+
+li{
+	list-style: none;
+	font-size: large;
+}
+
+.form-control{
+  width: 500px;
+  text-align: center;
+  margin: 0 auto;
+  top: 50px;
+  position: relative;
+}
+
+.album_tiles {
+	margin: 30px auto;
+	width: 600px;
+	border: 4px solid black;
+	position: relative;
+	top: 30px;
+}
+
+.cover_photos {
+	height: 250px;
+	border: 2px solid white;
+	border-radius: 2em 1em 4em / 0.5em 3em;
+}
+
+#body{
+	margin-top: 69px;
+}
+
+#footer{
+	background-color: black;
+	position: fixed;
+	width: 100%;
+	bottom: 0;
+	text-align: center;
+	color: white;
+}
+
+.create_btn{
+  top: 25px;
+  position: relative;
+  margin: 0 auto;
+  display: block;
+}
+
+#create_btn{
+  top: 25px;
+  position: relative;
+  margin: 0 auto;
+  display: block;
+}
+
+#logo{
+  margin-left: 70px;
+  top: -5px;
+  position: relative;
+}
+
+
