@@ -33,7 +33,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // database setup
 
-
 app.use('/', routes);
 
 // app.use('/users', users);

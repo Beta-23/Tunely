@@ -10,6 +10,17 @@
 {{/each}}
 </ul>
 
+  {{!-- <form onsubmit="searchAlbums"> --}}
+  <form>
+    <div class='form-group'>
+      <input type="text" name="album[image]" placeholder="Title" class="form-control" id="search-input" >
+    </div>       
+    <div class='form-group'>
+    {{!--  --}}
+      <input type="submit" value='Search for Albums' class="btn btn-default" id="search-bar-btn">
+    </div>
+  </form>
+
 {{!-- 
 {{ link_to('Add a New Quote', '/albums/new') }} --}}
 

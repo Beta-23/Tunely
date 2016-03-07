@@ -2,9 +2,20 @@
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script type="text/javascript" src="/javascripts/searchBar.js"> </script>
   </head>
   <body>
     <!-- the below `triple-stash`, avoid handlebars escaping any html -->
+
+    {{!-- jquery sanity check --}}
+    <script>
+      // $(document).ready(function() {
+      //   console.log( "layout ready!" );
+      // });
+    </script>
+
    {{{body}}}
   </body>
+
 </html>

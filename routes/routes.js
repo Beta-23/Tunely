@@ -30,16 +30,26 @@ router.route('/albums/new')
 // edit
 router.route('/albums/:id')
 
-  .get(albumsController.show);
+  .get(albumsController.show),
 
   // .patch(albumsController.edit)
 
   // .delete(albumsController.delete);
 
+
+// create route to albums/search
+// in this contoller should be the search by id
+// params from request
+
+// search bar route
+router.route('/search')
+  
+  .get(albumsController.search)
+
+
 // sanity check
 // router.route('/albums').get(function(req,res) {
 //   res.send("check sanity");
 // });
-
 
 module.exports = router;

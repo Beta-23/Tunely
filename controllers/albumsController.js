@@ -13,8 +13,8 @@ var albumsController = {
     var name = req.body.name;
     var artist = req.body.artist;
     var release_date = req.body.release_date;
-    var genre = req.body.genre
-    var image = req.body.image
+    var genre = req.body.genre;
+    var image = req.body.image;
     Album.create({name: name, artist: artist, release_date: release_date,
                   genre: genre, image: image}, function(err, data){
                     err ? console.log(err) : res.redirect('/albums');
@@ -42,6 +42,15 @@ var albumsController = {
       if (release_date) {album.release_date = release_date};
       if (genre) {album.genre = genre};
       if (image) {album.image = image};
+    })
+  },
+  search: function(req,res) {
+    // var name = req.params.name;
+    // use .filter()?
+    var id = req.params.id
+    console.log(id);
+    Album.findById({_id: id}, function(err, data) {
+      err ? console.log(err) : res.json({data});
     })
   }
   // },
