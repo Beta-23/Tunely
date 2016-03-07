@@ -33,13 +33,13 @@ router.route('/albums/:id')
 
   .get(albumsController.show)
 
- .delete(albumsController.delete);
+  .delete(albumsController.delete);
 
 router.route('/albums/:id/edit')
 
   .get(albumsController.edit)
 
-  .patch(albumsController.edit)
+  .patch(albumsController.edit);
 
 
 

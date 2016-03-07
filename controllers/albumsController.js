@@ -18,7 +18,7 @@ var albumsController = {
     var image = req.body.image;
     Album.create({name: name, artist: artist, release_date: release_date,
                   genre: genre, image: image}, function(err, data){
-                    err ? console.log('this doesnt work') : res.redirect('/albums');
+                    err ? console.log('create failed') : res.redirect('/albums');
                   })
   },
   show: function(req, res) {
@@ -63,7 +63,9 @@ var albumsController = {
   },
   delete: function(req,res){
     var id = req.params.id
-    Album.delete({_id: id})
+    Album.remove({_id: id}, function(err, data) {
+      err ? console.log(err) : res.redirect('/');
+      })
   }
 }
 
