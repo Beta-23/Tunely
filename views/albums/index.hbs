@@ -1,17 +1,26 @@
-<ul class="albums">
+<button id="create_btn" class="btn btn-success" onclick="window.location.href='/albums/new'">New Album</button>
 {{#each albums}}
-    <!-- <a class="album-title" href="/albums/{{_id}}">{{title}}:</a> -->
-  <li >{{image}}</li>
-  <li >{{name}}</li>
-	<li >{{artist}}</li>
-	<li >{{release_date}}</li>
-	<li >{{genre}}</li>
-	<br>
+  <div class="album_tiles">
+    <img class='cover_photos' src="{{image}}">
+    <ul>
+      <li ><strong>Album:</strong> {{name}}</li>
+      <li ><strong>Artist:</strong> {{artist}}</li>
+      <li ><strong>Released:</strong> {{release_date}}</li>
+      <li ><strong>Genre:</strong> {{genre}}</li>
+    <form method="POST" action="/albums?_method=DELETE">
+      <button type="submit">Delete Album</button>
+    </form>
+    <form method="POST" action="/albums?_method=PUT">
+      <button type="submit">Edit Album</button>
+    </form>
+    </ul>
+  </div>
 {{/each}}
-</ul>
+
+<br><br><br><br>
 
   {{!-- <form onsubmit="searchAlbums"> --}}
-  <form>
+{{!--   <form>
     <div class='form-group'>
       <input type="text" name="album[image]" placeholder="Title" class="form-control" id="search-input" >
     </div>       
@@ -19,7 +28,7 @@
     {{!--  --}}
       <input type="submit" value='Search for Albums' class="btn btn-default" id="search-bar-btn">
     </div>
-  </form>
+  </form> --}}
 
 {{!-- 
 {{ link_to('Add a New Quote', '/albums/new') }} --}}
