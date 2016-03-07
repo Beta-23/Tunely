@@ -19,7 +19,8 @@ var albumsController = require('../controllers/albumsController');
 
 // show all albums
 router.route('/albums')
-  .get(albumsController.index);
+  .get(albumsController.index)
+
 
 // new page and create
 router.route('/albums/new')
@@ -32,13 +33,15 @@ router.route('/albums/:id')
 
   .get(albumsController.show)
 
+ .delete(albumsController.delete);
+
 router.route('/albums/:id/edit')
 
   .get(albumsController.edit)
 
   .patch(albumsController.edit)
 
-  .delete(albumsController.delete);
+
 
 
 // create route to albums/search
