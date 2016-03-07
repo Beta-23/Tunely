@@ -33,7 +33,7 @@ var albumsController = {
     res.render('../views/albums/edit')
     var id = req.params.id;
     Album.findById({_id: id}, function(err, data){
-      err ? console.log(err) : res.send({data})
+      err ? console.log(err) : res.json({data})
     })
 
     var name = req.body.name;
