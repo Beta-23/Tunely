@@ -3,7 +3,6 @@ var mongoose = require('mongoose');
 var SongSchema = mongoose.Schema({
   name: String,
   tracknum: Number
-
 })
 
 

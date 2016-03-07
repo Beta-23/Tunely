@@ -1,6 +1,7 @@
 <button id="create_btn" class="btn btn-success" onclick="window.location.href='/albums/new'">New Album</button>
+
 {{#each albums}}
-  <div class="album_tiles">
+  <div class="album_tiles" onclick="window.location.href='/albums/{{id}}'">
     <img class='cover_photos' src="{{image}}">
     <ul>
       <li ><strong>Album:</strong> {{name}}</li>

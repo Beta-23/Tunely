@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var Song = require('Song')
+var Song = require("./Songs");
 
 var AlbumSchema = mongoose.Schema({
   name: String,
@@ -8,7 +8,7 @@ var AlbumSchema = mongoose.Schema({
   genre: String,
   image: String,
   //embedding songs schema
-  songs: [songSchema],
+  // songs: [songSchema],
   created_at: Date,
   updated_at: Date
 });
