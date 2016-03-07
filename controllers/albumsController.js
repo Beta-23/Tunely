@@ -7,7 +7,7 @@ var albumsController = {
     })
   },
   new: function(req, res) {
-    res.render('../views/albums/new', {albums: data});
+    res.render('../views/albums/new');
   },
   create: function(req, res) {
     var name = req.body.name;
@@ -28,6 +28,12 @@ var albumsController = {
     })
   },
   edit: function(req, res) {
+    res.render('../views/albums/edit')
+    var id = req.params.id;
+    Album.findById({_id: id}, function(err, data){
+      err ? console.log(err) : res.send({data})
+    })
+
     var name = req.body.name;
     var artist = req.body.artist;
     var release_date = req.body.release_date;
@@ -52,12 +58,11 @@ var albumsController = {
     Album.findById({_id: id}, function(err, data) {
       err ? console.log(err) : res.json({data});
     })
+  },
+  delete: function(req,res){
+    var id = req.params.id
+    Album.delete({_id: id})
   }
-  // },
-  // delete: function(req,res){
-  //   var id = req.params.id
-  //   Album.findById({_id: id})
-  // }
 }
 
 module.exports = albumsController;

@@ -30,11 +30,15 @@ router.route('/albums/new')
 // edit
 router.route('/albums/:id')
 
-  .get(albumsController.show),
+  .get(albumsController.show)
 
-  // .patch(albumsController.edit)
+router.route('/albums/:id/edit')
 
-  // .delete(albumsController.delete);
+  .get(albumsController.edit)
+
+  .patch(albumsController.edit)
+
+  .delete(albumsController.delete);
 
 
 // create route to albums/search
