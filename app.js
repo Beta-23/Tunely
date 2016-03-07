@@ -13,7 +13,7 @@ var sass = require('node-sass');
 // database
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/tunely-app');
-
+process.on('exit', function() { mongoose.disconnect();});
 
 var routes = require('./routes/routes');
 
@@ -27,12 +27,12 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
 // sass middleware setup
-app.use(sass.middleware({ src: __dirname + '/public' }));
+// app.use(sass.middleware({ src: __dirname + '/public' }));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(require('connect-assets')({
-    paths: ['public/stylesheets'],
-    helperContext: app.locals
-}));
+// app.use(require('connect-assets')({
+//     paths: ['public/stylesheets'],
+//     helperContext: app.locals
+// }));
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
