@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var Song = require("./Songs");
+var Song = require("./Song");
 
 var AlbumSchema = mongoose.Schema({
   name: String,

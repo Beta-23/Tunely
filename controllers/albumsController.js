@@ -30,26 +30,32 @@ var albumsController = {
     })
   },
   edit: function(req, res) {
-    res.render('../views/albums/edit')
     var id = req.params.id;
+    console.log(id)
     Album.findById({_id: id}, function(err, data){
-      err ? console.log(err) : res.json({data})
+      err ? console.log(err) : res.render('../views/albums/edit', {album: data});
     })
+  },
+  update: function(req, res) {
+    var id = req.params.id;
 
     var name = req.body.name;
     var artist = req.body.artist;
     var release_date = req.body.release_date;
     var genre = req.body.genre
     var image = req.body.image
-    var id = req.params.id
 
-    Album.findById(id, function(err, data){
+    Album.findById({_id: id}, function(err, data){
       if (err) { console.log(err) }
-      if (name) {album.name = name};
-      if (artist) {album.artist = artist};
-      if (release_date) {album.release_date = release_date};
-      if (genre) {album.genre = genre};
-      if (image) {album.image = image};
+      if (name) {data.name = name};
+      if (artist) {data.artist = artist};
+      if (release_date) {data.release_date = release_date};
+      if (genre) {data.genre = genre};
+      if (image) {data.image = image};
+      data.save(function(err) {
+        if(err) res.json({messsage: 'Could not save updated quote: ' + err});
+      });
+      res.redirect('/');
     })
   },
   search: function(req,res) {

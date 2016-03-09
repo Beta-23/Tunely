@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var helpers = require('express-helpers');
 var hbs = require('hbs');
+var passport = require('passport');
 var methodOverride = require('method-override');
 
 // SASS
@@ -17,6 +18,9 @@ mongoose.connect('mongodb://localhost/tunely-app');
 process.on('exit', function() { mongoose.disconnect();});
 
 var routes = require('./routes/routes');
+
+// Setting up the Passport Strategies
+require("./routes/passport")(passport);
 
 // var users = require('./routes/users');
 
@@ -45,6 +49,21 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'));
 
 // database setup
+
+app.get('/auth/facebook', passport.authenticate('facebook', { scope: 'email'} ));
+
+app.get('/auth/facebook/callback',
+  passport.authenticate('facebook', {
+    successRedirect: '/',
+    failureRedirect: '/'
+  })
+);
+
+app.get("/logout", function(req, res){
+  console.log(req.logout);
+  req.logout();
+  res.redirect("/");
+});
 
 app.use('/', routes);
 

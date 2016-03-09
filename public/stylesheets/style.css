@@ -79,6 +79,13 @@ li{
   margin-left: 70px;
   top: -5px;
   position: relative;
+  float: left;
+}
+
+#login{
+	float: right;
+	position: relative;
+	right: 100px;
 }
 
 

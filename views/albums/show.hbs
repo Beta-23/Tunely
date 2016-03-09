@@ -8,9 +8,8 @@
       <li ><strong>Genre:</strong> {{album.genre}}</li>
     <form method="POST" action="/albums/{{album.id}}?_method=DELETE">
       <button type="submit">Delete Album</button>
-      <input type="hidden" name="_method" value="delete"/>
     </form>
-    <form method="POST" action="/albums?_method=PUT">
+    <form method="GET" action="/albums/{{album.id}}/edit">
       <button type="submit">Edit Album</button>
     </form>
     </ul>

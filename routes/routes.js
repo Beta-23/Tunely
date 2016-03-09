@@ -1,8 +1,9 @@
 var express = require('express'),
-     router = express.Router(),
- bodyParser = require('body-parser'), //parses information from POST
-   methodOverride = require('method-override'),
-   Album = require('../models/Album')
+    router = express.Router(),
+    bodyParser = require('body-parser'), //parses information from POST
+    methodOverride = require('method-override'),
+    Album = require('../models/Album');
+
 
 /* GET home page. */
 // router.get('/', function(req, res, next) {
@@ -13,13 +14,13 @@ var express = require('express'),
 
 // redirect / to /albums for now
 router.route('/').get(function(req,res){
-  res.redirect('/albums')
-})
+  res.redirect('/albums');
+});
 var albumsController = require('../controllers/albumsController');
 
 // show all albums
 router.route('/albums')
-  .get(albumsController.index)
+  .get(albumsController.index);
 
 
 // new page and create
@@ -51,12 +52,13 @@ router.route('/albums/:id/edit')
 // search bar route
 router.route('/search')
   
-  .get(albumsController.search)
+  .get(albumsController.search);
 
 
-// sanity check
-// router.route('/albums').get(function(req,res) {
-//   res.send("check sanity");
-// });
+/////////////////////////////////////////////////////////////
+
+
+
+/////////////////////////////////////////////////////////////
 
 module.exports = router;
